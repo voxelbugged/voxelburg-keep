@@ -1,30 +1,33 @@
-var timeWasted = 0;
+var maxHealth = 10;
+var health = 10;
 
-function onClick() {
-  timeWasted += 1;
-  document.getElementById("clicks").innerHTML = timeWasted;
-  if (timeWasted == 10) {
-    document.getElementById("msg1").innerHTML = "Do you find this entertaining?";
-  }
-  if (timeWasted == 20) {
-    document.getElementById("msg2").innerHTML = "Seriously now, it's just a button.";
-  }
-  if (timeWasted == 30) {
-    document.getElementById("msg3").innerHTML = "This isn't even the game you're looking for. That one's not finished yet.";
-  }
-  if (timeWasted == 40) {
-    document.getElementById("msg4").innerHTML = "Okay, you do you, I guess. This is my final message.";
-  }
-  if (timeWasted == 50) {
-    alert("And this is my first alert! Do you like it? Press the button if you do.")
-  }
-  if (timeWasted == 51) {
-    alert("Yay!! Thank you for appreciating my programming skills!! Enjoy the awesome button!!")
-  }
-  if (timeWasted == 100) {
-    alert("Hey, is it just me or is the background really suspicious?")
-  }
-  if (timeWasted > 666) {
-    alert("kay faraday")
-  }
-};
+var attack = 1;
+
+var defense = 0;
+
+var enemyMaxHealth = 2;
+var enemyHealth = 2;
+
+var enemyAttack = 1;
+
+var enemyDefense = 0;
+
+function fight() {
+    health -= (enemyAttack - defense);
+    enemyHealth -= (attack - enemyDefense);
+    updateStats()
+    if (health <= 0){
+        document.write("oh no your in die :((( so verry sad now refresh page to do the thing again");
+    }
+}
+
+function updateStats() {
+    document.getElementById("health").innerHTML = health;
+    document.getElementById("maxHealth").innerHTML = maxHealth;
+    document.getElementById("attack").innerHTML = attack;
+    document.getElementById("defense").innerHTML = defense;
+    document.getElementById("enemyHealth").innerHTML = enemyHealth;
+    document.getElementById("enemyMaxHealth").innerHTML = enemyMaxHealth;
+    document.getElementById("enemyAttack").innerHTML = enemyAttack;
+    document.getElementById("enemyDefense").innerHTML = enemyDefense;
+}
